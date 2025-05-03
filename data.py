@@ -2,7 +2,7 @@
 A futuro almacenar en mySQL o mongodb 
 """
 #balancedb almacena los ultimos datos de cada mes para un calculo anual
-balancedb = list[dict] = []
+balancedb: list[dict] = []
 
 """
 fmes (general) 
@@ -11,6 +11,5 @@ monto = int
 fecha = dia/mes/año 
 """ 
 #sub lista (mes) almacena todos los ingresos diarios para luego realizar un balance que se almacena en "balancedb"
-fmes_ingresos = list[dict] = []
-fmes_gastos = list[dict] = []
-fmes_inversiones = list[dict] = []
+fmes_ingresos: list[dict] = []
+fmes_gastos: list[dict] = []
