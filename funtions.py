@@ -92,4 +92,3 @@ def status():
         
         balancedb = balance, date.today().isoformat()
         print(balancedb)
-
