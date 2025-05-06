@@ -1,7 +1,8 @@
 import os
 
 from termcolor import cprint
-from funtions import status,add_ingresos,delete_ingresos,add_gastos,delete_gastos
+
+from src.controls.control_utilities import status,add_ingresos,delete_ingresos,add_gastos,delete_gastos,clean_screen
 
 def main_menu ():
     while True:
@@ -29,8 +30,3 @@ def main_menu ():
             case _: print("Opción no valida")
 
 
-def clean_screen():
-    if os.name == "nt":
-        os.system("cls")
-    else:
-        os.system("clear")

@@ -1,7 +1,8 @@
+import os
 import datetime
 from datetime import date
 
-from data import balancedb,fmes_ingresos,fmes_gastos
+from src.datas.data import balancedb,fmes_ingresos,fmes_gastos
 
 
 nuevo_ingreso = dict
@@ -28,12 +29,12 @@ def delete_ingresos():
         else:
             for index, ingreso in enumerate(fmes_ingresos, start =1):
                 print(f"{index}. {{{ingreso['Monto']}, {ingreso['Fecha']}}}")
-                delete = int(input("Elija el numero del ingreso a eliminar: "))
-                try:
-                    fmes_ingresos.pop(delete-1)
-                except IndexError as error:
-                     print("Por favor ingrese un numero dentro del rango mostrado", error)
-                     return delete_ingresos
+            delete = int(input("Elija el numero del ingreso a eliminar: "))
+            try:
+                fmes_ingresos.pop(delete - 1)
+            except IndexError as error:
+                print("Por favor ingrese un numero dentro del rango mostrado", error)
+                return delete_ingresos
         return
     except ValueError as error:
          print("Por favor ingrese un numero, NO texto.", error)
@@ -62,11 +63,13 @@ def delete_gastos():
             print("No hay gastos que eliminar: ") 
         else:
             for index, gasto  in enumerate(fmes_gastos, start=1):
-                try:
-                    print(f"{index}. {{{gasto['Monto']}, {gasto['Fecha']}}}")
-                except IndexError as error:
-                     print("Por favor ingrese un numero dentro del rango mostrado", error)
-                     return delete_gastos
+                print(f"{index}. {{{gasto['Monto']}, {gasto['Fecha']}}}")
+            delete = int(input("Elija el numero del ingreso a eliminar: "))
+            try:
+                 fmes_ingresos.pop(delete - 1)
+            except IndexError as error:
+                print("Por favor ingrese un numero dentro del rango mostrado", error)
+            return delete_gastos
             return
     except ValueError as error:
          print("Por favor ingrese un numero, NO texto.", error)
@@ -92,3 +95,9 @@ def status():
         
         balancedb = balance, date.today().isoformat()
         print(balancedb)
+
+def clean_screen():
+    if os.name == "nt":
+        os.system("cls")
+    else:
+        os.system("clear")

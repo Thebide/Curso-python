@@ -11,5 +11,13 @@ monto = int
 fecha = dia/mes/año 
 """ 
 #sub lista (mes) almacena todos los ingresos diarios para luego realizar un balance que se almacena en "balancedb"
-fmes_ingresos: list[dict] = []
-fmes_gastos: list[dict] = []
+fmes_ingresos: list[dict] = [
+    {"Monto": 890.00, "Fecha": "23/03/24"},
+    {"Monto": 1200.50, "Fecha": "03/04/24"},
+    {"Monto": 999.99, "Fecha": "29/04/24"},
+    {"Monto": 1500.00, "Fecha": "02/05/24"} ]
+
+fmes_gastos: list[dict] = [
+    {"Monto": -420.30, "Fecha": "10/03/24"},
+    {"Monto": -350.75, "Fecha": "15/04/24"},
+    {"Monto": -275.40, "Fecha": "12/05/24"} ]
