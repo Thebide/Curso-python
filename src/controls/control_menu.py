@@ -1,8 +1,7 @@
-import os
-
 from termcolor import cprint
 
-from src.controls.control_utilities import status,add_ingresos,delete_ingresos,add_gastos,delete_gastos,clean_screen
+from src.controls.control_utility import status,add_ingresos,delete_ingresos,add_gastos,delete_gastos
+from src.helpers.helper_menu import clean_screen
 
 def main_menu ():
     while True:
