@@ -2,7 +2,7 @@ import datetime
 from datetime import date
 
 from src.datas import balancedb,fmes_ingresos,fmes_gastos
-from src.helpers.helper_menu import ask_amount
+from src.helpers.helper_code import ask_amount,ask_commentary
 from src.helpers.helper_file import write_json
 from src.constants import fmes_gastos_json,fmes_ingresos_json,balancedb_json
 
@@ -10,9 +10,11 @@ from src.constants import fmes_gastos_json,fmes_ingresos_json,balancedb_json
 class ControlUtility():
     def add_ingresos(self):
         nuevo_ingreso = dict
-        value = ask_amount("Ingrese un monto: ")
-        nuevo_ingreso = {"Monto": value, 
-                        "Fecha": date.today().isoformat()}
+        monto = ask_amount("Ingrese un monto: ")
+        comentario = ask_commentary("Ingrese un comentario: ")
+        nuevo_ingreso = {"Monto": monto, 
+                        "Fecha": date.today().isoformat(),
+                        "Comentario": comentario }
         fmes_ingresos.append(nuevo_ingreso)
         write_json(fmes_ingresos_json , fmes_ingresos)
         for index, ingreso  in enumerate(fmes_ingresos, start=1):
@@ -41,6 +43,7 @@ class ControlUtility():
     def add_gastos(self):    
         nuevo_egreso = dict
         value = ask_amount("Ingrese un monto: ")
+        comentario = ask_commentary("Ingrese un comentario: ")
         nuevo_egreso = {"Monto": value, 
                         "Fecha": date.today().isoformat()}
         fmes_gastos.append(nuevo_egreso)

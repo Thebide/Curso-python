@@ -12,3 +12,5 @@ def initialize_data_ingresos() -> list[dict]:
 
 def initialize_data_gastos() -> list[dict]:
     return read_json(fmes_gastos_json)
+
+ 
