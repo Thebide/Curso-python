@@ -61,7 +61,7 @@ class ControlUtility():
                     print(f"{index}. {{{gasto['Monto']}, {gasto['Fecha']}}}")
                 delete = int(input("Elija el numero del ingreso a eliminar: "))
                 try:
-                    fmes_ingresos.pop(delete - 1)
+                    fmes_gastos.pop(delete - 1)
                     write_json(fmes_gastos_json , fmes_gastos)
                 except IndexError as error:
                     print("Por favor ingrese un numero dentro del rango mostrado", error)
